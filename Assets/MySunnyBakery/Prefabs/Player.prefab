@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4649361544241165344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2301651521751560480}
+  - component: {fileID: 2925976492721857305}
+  - component: {fileID: 787211351435491521}
+  - component: {fileID: 6079208216333370000}
+  - component: {fileID: 380558070991884884}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2301651521751560480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649361544241165344}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8918548388584014412}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2925976492721857305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649361544241165344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed4da4f267c4bb6bdbe3ec8bd47e676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Characters.Character
+  <Model>k__BackingField: {fileID: 6551535526872998718}
+  <Controller>k__BackingField: {fileID: 380558070991884884}
+  <Movement>k__BackingField: {fileID: 787211351435491521}
+  <Input>k__BackingField: {fileID: 6079208216333370000}
+--- !u!114 &787211351435491521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649361544241165344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f7c2a59473476d80ada51a4b7e8041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Characters.CharacterMovement
+  _rotationSpeed: 5
+  Data:
+    Movement: {x: 0, y: 0, z: 0}
+  _states:
+  - rid: 8532587603313819903
+  - rid: 8532587603313819904
+  _character: {fileID: 2925976492721857305}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8532587603313819903
+      type: {class: Idle, ns: MySunnyBakery.Characters.MovementStates, asm: Assembly-CSharp}
+      data: 
+    - rid: 8532587603313819904
+      type: {class: Move, ns: MySunnyBakery.Characters.MovementStates, asm: Assembly-CSharp}
+      data:
+        _runThreshold: 0.3
+        _idleTransitionDelay: 0.1
+--- !u!114 &6079208216333370000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649361544241165344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630a9752bfc3447c8ec7470b696a0008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Characters.CharacterInput
+--- !u!143 &380558070991884884
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649361544241165344}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.0001
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!1001 &2578224652754946608
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2301651521751560480}
+    m_Modifications:
+    - target: {fileID: 6001448393183040198, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_Name
+      value: Girl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+--- !u!114 &6551535526872998718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731366356550740238, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+  m_PrefabInstance: {fileID: 2578224652754946608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8828d0af203b4e529d8e9108bbfed5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Characters.CharacterModel
+--- !u!4 &8918548388584014412 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6341839207592609916, guid: ee1e234994b94d641ac7c75e82c6b002, type: 3}
+  m_PrefabInstance: {fileID: 2578224652754946608}
+  m_PrefabAsset: {fileID: 0}
