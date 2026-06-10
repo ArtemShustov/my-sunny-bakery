@@ -627,7 +627,7 @@ MonoBehaviour:
         DecelTime: 0
     - Name: Orbit Scale
       Owner: {fileID: 476898828}
-      Enabled: 1
+      Enabled: 0
       Input:
         IsZoom: 0
       InputValue: 0
@@ -1445,7 +1445,7 @@ MonoBehaviour:
         DecelTime: 0
     - Name: Orbit Scale
       Owner: {fileID: 2086968604}
-      Enabled: 1
+      Enabled: 0
       Input:
         IsZoom: 0
       InputValue: 0
@@ -1669,6 +1669,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 380558070991884884, guid: 6e785eb4b831067418df4928e1b4dbb3, type: 3}
+      propertyPath: m_Height
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 380558070991884884, guid: 6e785eb4b831067418df4928e1b4dbb3, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 380558070991884884, guid: 6e785eb4b831067418df4928e1b4dbb3, type: 3}
+      propertyPath: m_Center.y
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2301651521751560480, guid: 6e785eb4b831067418df4928e1b4dbb3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
