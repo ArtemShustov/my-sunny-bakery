@@ -1,20 +1,22 @@
 ﻿using MySunnyBakery.Interactions;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.Localization;
 
 namespace MySunnyBakery.Characters {
 	[RequireComponent(typeof(Character))]
 	public class Hands: MonoBehaviour {
-		private Character _character;
+		[SerializeField] private Character _character;
+		[SerializeField] private PlayerInteractor _interactor;
 		private Pickable _item;
-
+		private DropItemInteraction _dropItemInteraction;
+		
 		private static readonly int Empty = Animator.StringToHash("Empty");
 		
 		public bool IsFree => _item == null;
 		public Pickable Item => _item;
-		
+
 		private void Awake() {
-			_character = GetComponent<Character>();
+			_dropItemInteraction = new DropItemInteraction(this);
 		}
 
 		public void Take(Pickable pickable) {
@@ -64,14 +66,27 @@ namespace MySunnyBakery.Characters {
 		}
 		
 		private void OnEnable() {
-			_character.Input.UseAlt += OnUse;
+			_interactor.AddDefaultHoldInteraction(_dropItemInteraction);
 		}
 		private void OnDisable() {
-			_character.Input.UseAlt -= OnUse;
+			_interactor.RemoveDefaultHoldInteraction(_dropItemInteraction);
 		}
-		private void OnUse(InputAction.CallbackContext context) {
-			if (context.performed) {
-				Drop();
+		
+		private class DropItemInteraction: IHoldInteraction {
+			private readonly Hands _hands;
+			
+			public DropItemInteraction(Hands hands) {
+				_hands = hands;
+			}
+			
+			public void HoldInteract(InteractionContext context) {
+				_hands.Drop();
+			}
+			public bool CanHoldInteract(InteractionContext context) {
+				return !_hands.IsFree;
+			}
+			public LocalizedString GetHoldHint(InteractionContext context) {
+				throw new System.NotImplementedException();
 			}
 		}
 	}

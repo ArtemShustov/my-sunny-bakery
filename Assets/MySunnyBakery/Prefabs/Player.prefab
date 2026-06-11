@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1f0e5fdd58ad544ba74d9c59b4e151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Characters.Hands
+  _character: {fileID: 2925976492721857305}
+  _interactor: {fileID: 2637809933032540628}
 --- !u!1 &8961193643767135490
 GameObject:
   m_ObjectHideFlags: 0
