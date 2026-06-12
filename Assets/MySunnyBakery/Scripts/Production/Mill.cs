@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using MySunnyBakery.Interactions;
 
@@ -17,6 +18,25 @@ namespace MySunnyBakery.Production {
 		private Item _outputSlot;
 		private float _progress;
 
+		public event Action WorkStarted;
+		public event Action WorkStopped;
+		public event Action ItemTaken;
+
+		private void Update() {
+			if (_inputSlot == null || _outputSlot != null) {
+				return;
+			}
+
+			_progress += Time.deltaTime / _grindDuration;
+
+			if (_progress >= 1f) {
+				SpawnOutput();
+				Destroy(_inputSlot.gameObject);
+				_inputSlot = null;
+				WorkStopped?.Invoke();
+			}
+		}
+		
 		public bool CanReceive(GameObject item) {
 			if (_inputSlot != null) {
 				return false;
@@ -34,20 +54,7 @@ namespace MySunnyBakery.Production {
 			item.transform.localPosition = Vector3.zero;
 			item.transform.localRotation = Quaternion.identity;
 			_progress = 0f;
-		}
-
-		private void Update() {
-			if (_inputSlot == null || _outputSlot != null) {
-				return;
-			}
-
-			_progress += Time.deltaTime / _grindDuration;
-
-			if (_progress >= 1f) {
-				SpawnOutput();
-				Destroy(_inputSlot.gameObject);
-				_inputSlot = null;
-			}
+			WorkStarted?.Invoke();
 		}
 
 		private void SpawnOutput() {
@@ -80,6 +87,7 @@ namespace MySunnyBakery.Production {
 
 			var item = _outputSlot.gameObject;
 			_outputSlot = null;
+			ItemTaken?.Invoke();
 			return item;
 		}
 	}
