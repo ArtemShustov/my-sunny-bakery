@@ -37,7 +37,7 @@ namespace MySunnyBakery.Characters {
 				SetAnim(config.Animation);
 			}
 			
-			_item.OnPicked(this);
+			_item.OnPicked();
 		}
 		public void Drop() {
 			if (_item == null) {
@@ -45,7 +45,7 @@ namespace MySunnyBakery.Characters {
 			}
 			
 			_item.transform.SetParent(null);
-			_item.OnDropped(this);
+			_item.OnDropped();
 			_item = null;
 			ClearAnim();
 		}

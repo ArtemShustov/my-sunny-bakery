@@ -62,6 +62,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 876c693b4514db84194aa83af0b7817b, type: 3}
       insertIndex: 1
+      addedObject: {fileID: -7152309423203656919}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 876c693b4514db84194aa83af0b7817b, type: 3}
+      insertIndex: 2
       addedObject: {fileID: 6078935893822955926}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 876c693b4514db84194aa83af0b7817b, type: 3}
       insertIndex: -1
@@ -75,6 +78,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 876c693b4514db84194aa83af0b7817b, type: 3}
   m_PrefabInstance: {fileID: 3304407944137870196}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7152309423203656919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385487600222484005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55cd00bce22c8e340afb66094063f368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.Item
+  _id: sacks
 --- !u!114 &6078935893822955926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +117,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _rigidbody: {fileID: 2950757583566514518}
+  _collider: {fileID: 890150809583182696}
   references:
     version: 2
     RefIds: []

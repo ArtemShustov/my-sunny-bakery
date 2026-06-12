@@ -62,9 +62,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 869e21467dc217745aee792c2855c6ba, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 2485577008865620520}
+      addedObject: {fileID: -4053261228433900247}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 869e21467dc217745aee792c2855c6ba, type: 3}
       insertIndex: 2
+      addedObject: {fileID: 2485577008865620520}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 869e21467dc217745aee792c2855c6ba, type: 3}
+      insertIndex: 3
       addedObject: {fileID: 4981657240804729104}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 869e21467dc217745aee792c2855c6ba, type: 3}
       insertIndex: -1
@@ -78,6 +81,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 869e21467dc217745aee792c2855c6ba, type: 3}
   m_PrefabInstance: {fileID: 7096448540141444641}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4053261228433900247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978917875647079280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55cd00bce22c8e340afb66094063f368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.Item
+  _id: bread
 --- !u!114 &2485577008865620520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +120,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _rigidbody: {fileID: 3929906696114479018}
+  _collider: {fileID: 2725764731196575225}
   references:
     version: 2
     RefIds: []
@@ -119,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da440706f9cc4395b086a7826aa32719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.Bakeable
+  _progress: 0
 --- !u!54 &3929906696114479018
 Rigidbody:
   m_ObjectHideFlags: 0
