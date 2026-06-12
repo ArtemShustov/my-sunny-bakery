@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using MySunnyBakery.Interactions;
+using MySunnyBakery.Items;
 
 namespace MySunnyBakery.Production {
 	public class Mill: MonoBehaviour, IMachine {
@@ -11,8 +12,8 @@ namespace MySunnyBakery.Production {
 		[Header("Settings")]
 		[SerializeField] private float _grindDuration = 1f;
 		[Space]
-		[SerializeField] private string _inputId;
-		[SerializeField] private GameObject _outputPrefab;
+		[SerializeField] private ItemDefinition _inputDefinition;
+		[SerializeField] private ItemDefinition _outputDefinition;
 
 		private Item _inputSlot;
 		private Item _outputSlot;
@@ -36,16 +37,16 @@ namespace MySunnyBakery.Production {
 				WorkStopped?.Invoke();
 			}
 		}
-		
+
 		public bool CanReceive(GameObject item) {
 			if (_inputSlot != null) {
 				return false;
 			}
-			return item.TryGetComponent<Item>(out var candidate) && candidate.Id == _inputId;
+			return item.TryGetComponent<Item>(out var candidate) && candidate.Definition == _inputDefinition;
 		}
 
 		public void Receive(GameObject item) {
-			if (_inputSlot != null || !item.TryGetComponent<Item>(out var inputItem) || inputItem.Id != _inputId) {
+			if (_inputSlot != null || !item.TryGetComponent<Item>(out var inputItem) || inputItem.Definition != _inputDefinition) {
 				return;
 			}
 
@@ -58,21 +59,19 @@ namespace MySunnyBakery.Production {
 		}
 
 		private void SpawnOutput() {
-			if (_outputPrefab == null) {
+			if (_outputDefinition == null) {
 				return;
 			}
 
-			var spawned = Instantiate(_outputPrefab, _outputSlotRoot);
-			spawned.transform.localPosition = Vector3.zero;
-			spawned.transform.localRotation = Quaternion.identity;
-
-			if (spawned.TryGetComponent<Item>(out var item)) {
-				_outputSlot = item;
+			var spawned = _outputDefinition.Instantiate(_outputSlotRoot);
+			if (spawned == null) {
+				Debug.LogWarning("Spawned item is null!");
+				return;
 			}
-
+			
+			_outputSlot = spawned;
 			if (spawned.TryGetComponent<Pickable>(out var pickable)) {
 				pickable.OnPicked();
-				Debug.Log("Picked " + pickable.gameObject.name);
 			}
 		}
 

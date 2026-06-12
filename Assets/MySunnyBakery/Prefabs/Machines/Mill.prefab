@@ -54,8 +54,8 @@ MonoBehaviour:
   _inputSlotRoot: {fileID: 799160485935274916}
   _outputSlotRoot: {fileID: 4282896743673121761}
   _grindDuration: 10
-  _inputId: sacks
-  _outputPrefab: {fileID: 1245245689548761365, guid: a070e512165b0a44a8d1dfcffa99fcad, type: 3}
+  _inputDefinition: {fileID: 11400000, guid: e1f8da78bec9086428459a59bcc53e0a, type: 2}
+  _outputDefinition: {fileID: 11400000, guid: c8ac65f416379b04fa4dda82851195e2, type: 2}
 --- !u!114 &2585581617212343026
 MonoBehaviour:
   m_ObjectHideFlags: 0

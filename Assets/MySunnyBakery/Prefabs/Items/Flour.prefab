@@ -87,10 +87,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1245245689548761365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55cd00bce22c8e340afb66094063f368, type: 3}
+  m_Script: {fileID: 11500000, guid: c4937e93c214a154d9468de6d5684efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.Item
-  _id: flour
+  _definition: {fileID: 11400000, guid: c8ac65f416379b04fa4dda82851195e2, type: 2}
 --- !u!114 &958302417316263523
 MonoBehaviour:
   m_ObjectHideFlags: 0
