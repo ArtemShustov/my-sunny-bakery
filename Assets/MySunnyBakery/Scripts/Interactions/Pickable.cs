@@ -9,6 +9,7 @@ namespace MySunnyBakery.Interactions {
 		[Space]
 		[SerializeField] private LocalizedString _hint;
 		[SerializeField] private Rigidbody _rigidbody;
+		[SerializeField] private Collider _collider;
 		
 		public void Interact(InteractionContext context) {
 			context.Invoker.GetComponent<Hands>()?.Take(this);
@@ -20,12 +21,18 @@ namespace MySunnyBakery.Interactions {
 			return _hint;
 		}
 
-		public virtual void OnPicked(Hands hands) {
+		public virtual void OnPicked() {
 			_rigidbody.isKinematic = true;
+			if (_collider != null) {
+				_collider.enabled = false;
+			}
 		}
-		public virtual void OnDropped(Hands hands) {
+		public virtual void OnDropped() {
 			transform.localRotation = Quaternion.identity;
 			_rigidbody.isKinematic = false;
+			if (_collider != null) {
+				_collider.enabled = true;
+			}
 		}
 		
 		[Serializable]
