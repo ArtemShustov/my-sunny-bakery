@@ -8,10 +8,12 @@ namespace MySunnyBakery.Production {
 		[Header("Settings")]
 		[SerializeField] private float _duration = 2f;
 		[Space]
-		[SerializeField] private ItemDefinition[] _inputFilter;
+		[SerializeField] private ItemDefinition _requiredA;
+		[SerializeField] private ItemDefinition _requiredB;
 		[SerializeField] private ItemDefinition _output;
 
-		private Item _inputSlot;
+		private Item _slotA;
+		private Item _slotB;
 		private Item _outputSlot;
 		private float _progress;
 		private bool _isWorking;
@@ -32,7 +34,7 @@ namespace MySunnyBakery.Production {
 		}
 
 		public bool CanReceive(GameObject item) {
-			if (_inputSlot != null || _isWorking) {
+			if (_isWorking) {
 				return false;
 			}
 
@@ -40,18 +42,21 @@ namespace MySunnyBakery.Production {
 				return false;
 			}
 
-			var candidateDefinition = candidate.Definition;
-			foreach (var filter in _inputFilter) {
-				if (filter == candidateDefinition) {
-					return true;
-				}
+			var def = candidate.Definition;
+
+			if (_slotA == null && def == _requiredA) {
+				return true;
+			}
+
+			if (_slotB == null && def == _requiredB) {
+				return true;
 			}
 
 			return false;
 		}
 
 		public void Receive(GameObject item) {
-			if (_inputSlot != null || _isWorking) {
+			if (_isWorking) {
 				return;
 			}
 
@@ -59,21 +64,24 @@ namespace MySunnyBakery.Production {
 				return;
 			}
 
-			var inputDefinition = inputItem.Definition;
-			var isValid = false;
-			foreach (var filter in _inputFilter) {
-				if (filter == inputDefinition) {
-					isValid = true;
-					break;
-				}
-			}
+			var def = inputItem.Definition;
 
-			if (!isValid) {
+			if (_slotA == null && def == _requiredA) {
+				_slotA = inputItem;
+			} else if (_slotB == null && def == _requiredB) {
+				_slotB = inputItem;
+			} else {
 				return;
 			}
 
-			_inputSlot = inputItem;
+			InputReceived?.Invoke(item);
 
+			if (_slotA != null && _slotB != null) {
+				StartWork();
+			}
+		}
+
+		private void StartWork() {
 			_progress = 0f;
 			_isWorking = true;
 
@@ -83,14 +91,13 @@ namespace MySunnyBakery.Production {
 			}
 
 			WorkStarted?.Invoke();
-			InputReceived?.Invoke(item);
 		}
 
 		private void FinishWork() {
 			_isWorking = false;
-
-			Destroy(_inputSlot.gameObject);
-			_inputSlot = null;
+			
+			_slotA = null;
+			_slotB = null;
 
 			SpawnOutput();
 			WorkStopped?.Invoke();

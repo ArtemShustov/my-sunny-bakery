@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4937e93c214a154d9468de6d5684efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.Item
-  _definition: {fileID: 11400000, guid: 960d7e1cd062cf8439f52db41d9bc980, type: 2}
+  _definition: {fileID: 11400000, guid: c56e643a54e2dad498e9d0be0d3659ec, type: 2}
 --- !u!114 &2485577008865620520
 MonoBehaviour:
   m_ObjectHideFlags: 0

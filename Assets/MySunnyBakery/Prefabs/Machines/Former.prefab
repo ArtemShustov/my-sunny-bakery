@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1571344754460310401}
   - component: {fileID: 8368546167252184270}
   - component: {fileID: 1306768923159838870}
+  - component: {fileID: 5842755428260612775}
   m_Layer: 0
   m_Name: Former
   m_TagString: Untagged
@@ -82,8 +83,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.Former
   _duration: 2
-  _inputFilter:
-  - {fileID: 11400000, guid: c8ac65f416379b04fa4dda82851195e2, type: 2}
+  _requiredA: {fileID: 11400000, guid: d9eb8e6e42847b14895faf5742e30879, type: 2}
+  _requiredB: {fileID: 11400000, guid: c8ac65f416379b04fa4dda82851195e2, type: 2}
   _output: {fileID: 11400000, guid: 960d7e1cd062cf8439f52db41d9bc980, type: 2}
 --- !u!114 &1571344754460310401
 MonoBehaviour:
@@ -98,21 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.FormerVisuals
   _former: {fileID: 2060185150784958589}
+  _animator: {fileID: 5842755428260612775}
   _inputSlotRoot: {fileID: 1944244034769406888}
   _outputSlotRoot: {fileID: 3103310972972637484}
-  _outputLid: {fileID: 8562218449451603720}
-  _drumLid: {fileID: 1548098647351254456}
-  _drum: {fileID: 3093578248890566606}
-  _outputSlideDuration: 0.5
-  _outputSlotZStart: 0.15
-  _outputSlotZEnd: 0.5
-  _lidAnimationDuration: 0.5
-  _drumLidClosedX: 0
-  _drumLidOpenX: -90
-  _outputLidClosedX: 0
-  _outputLidOpenX: 90
-  _drumRotationSpeed: 360
-  _drumReturnSpeed: 2
+  _inputRadius: 0.2
 --- !u!114 &8368546167252184270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +148,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &5842755428260612775
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4492532324728339392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b5ca084975e4e543b25c98c0e3eaa4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6554948037640127076
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,23 +298,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 328a5211feed2d143a2df5fa0ece1662, type: 3}
---- !u!4 &1548098647351254456 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6208959077703723148, guid: 328a5211feed2d143a2df5fa0ece1662, type: 3}
-  m_PrefabInstance: {fileID: 4850751624699049268}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3093578248890566606 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1603336579925232902, guid: 328a5211feed2d143a2df5fa0ece1662, type: 3}
-  m_PrefabInstance: {fileID: 4850751624699049268}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4961820666692670175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 328a5211feed2d143a2df5fa0ece1662, type: 3}
-  m_PrefabInstance: {fileID: 4850751624699049268}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8562218449451603720 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3855724178763031100, guid: 328a5211feed2d143a2df5fa0ece1662, type: 3}
   m_PrefabInstance: {fileID: 4850751624699049268}
   m_PrefabAsset: {fileID: 0}
