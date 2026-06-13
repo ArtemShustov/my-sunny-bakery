@@ -43,7 +43,7 @@ namespace MySunnyBakery.Production {
 			_animationCts?.Dispose();
 			_animationCts = null;
 			
-			_visualRoot.localScale = Vector3.zero;
+			_visualRoot.localScale = Vector3.one;
 		}
 
 		private void OnEnable() {
@@ -58,7 +58,7 @@ namespace MySunnyBakery.Production {
 			_animationCts?.Dispose();
 			_animationCts = null;
 			
-			_visualRoot.localScale = Vector3.zero;
+			_visualRoot.localScale = Vector3.one;
 		}
 	}
 }
