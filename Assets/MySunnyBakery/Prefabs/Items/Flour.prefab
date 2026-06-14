@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a4e750095ac65284486e3031144ce2c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.4049208
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4e750095ac65284486e3031144ce2c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.000004510771
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4e750095ac65284486e3031144ce2c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.731574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4e750095ac65284486e3031144ce2c6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Interactions.Pickable
   <InHand>k__BackingField:
-    Offset: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0}
-    Animation: 
+    Offset: {x: 0.18, y: 0.05, z: -0.15}
+    Rotation: {x: 90, y: 0, z: 0}
+    Animation: SideHold
   _hint:
     m_TableReference:
       m_TableCollectionName: 
