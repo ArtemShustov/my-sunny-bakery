@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace MySunnyBakery.Production {
-	public class Furnace: MonoBehaviour, IMachine {
+	public class Furnace : Machine {
 		[SerializeField] private Transform _slotRoot;
 		[SerializeField] private float _bakeDuration = 1f;
 		private Bakeable _slot;
@@ -20,10 +20,10 @@ namespace MySunnyBakery.Production {
 			ProgressChanged?.Invoke(_slot.Progress);
 		}
 
-		public bool CanReceive(GameObject item) {
+		public override bool CanReceive(GameObject item) {
 			return _slot == null && item.TryGetComponent<Bakeable>(out _);
 		}
-		public void Receive(GameObject item) {
+		public override void Receive(GameObject item) {
 			if (_slot != null || !item.TryGetComponent<Bakeable>(out var bakeable)) {
 				return;
 			}
@@ -35,10 +35,10 @@ namespace MySunnyBakery.Production {
 			WorkStarted?.Invoke();
 		}
 
-		public bool CanTake() {
+		public override bool CanTake() {
 			return _slot != null;
 		}
-		public GameObject Take() {
+		public override GameObject Take() {
 			if (_slot == null) {
 				return null;
 			}

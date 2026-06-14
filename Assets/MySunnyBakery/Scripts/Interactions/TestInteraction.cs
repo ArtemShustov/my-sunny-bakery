@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -9,6 +10,8 @@ namespace MySunnyBakery.Interactions {
 
 		private bool _used;
 		private float _lastInteractionTime;
+
+		public event Action<LocalizedString> HintChanged;
 
 		public void Interact(InteractionContext context) {
 			switch (_behaviour) {

@@ -1,4 +1,5 @@
-﻿using MySunnyBakery.Interactions;
+﻿using System;
+using MySunnyBakery.Interactions;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -73,6 +74,8 @@ namespace MySunnyBakery.Characters {
 		}
 		
 		private class DropItemInteraction: IHoldInteraction {
+			public event Action<LocalizedString> HoldHintChanged;
+			
 			private readonly Hands _hands;
 			
 			public DropItemInteraction(Hands hands) {

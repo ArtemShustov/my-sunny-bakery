@@ -289,7 +289,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4848269987069040769}
   - component: {fileID: 8527121870637494800}
-  - component: {fileID: 2314528459895372749}
   - component: {fileID: 6298964208691010844}
   - component: {fileID: 6485108271562159484}
   - component: {fileID: 923862518855799083}
@@ -322,6 +321,7 @@ Transform:
   - {fileID: 7395444260918930780}
   - {fileID: 6424193211697239636}
   - {fileID: 7779986300830228724}
+  - {fileID: 299912457254172626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527121870637494800
@@ -337,32 +337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Vehicles.VehicleInput
   _vehicleController: {fileID: 6298964208691010844}
---- !u!114 &2314528459895372749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5287701392281665579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd26470a27a7c744199e8d9e671b0d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Vehicles.VehicleSeatInteraction
-  _vehicle: {fileID: 8527121870637494800}
-  _hint:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  _exitPoint: {fileID: 7779986300830228724}
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &6298964208691010844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +591,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8765385856279464395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299912457254172626}
+  - component: {fileID: 279541896680567160}
+  - component: {fileID: 3403823890351410540}
+  m_Layer: 9
+  m_Name: SeatInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &299912457254172626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765385856279464395}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4848269987069040769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &279541896680567160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765385856279464395}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &3403823890351410540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765385856279464395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd26470a27a7c744199e8d9e671b0d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Vehicles.VehicleSeatInteraction
+  _vehicle: {fileID: 8527121870637494800}
+  _hint:
+    m_TableReference:
+      m_TableCollectionName: GUID:e7051fd5c6f26a941ac9ec9d630504a1
+    m_TableEntryReference:
+      m_KeyId: 15260491998814208
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _exitPoint: {fileID: 7779986300830228724}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &9130432851340687978
 GameObject:
   m_ObjectHideFlags: 0

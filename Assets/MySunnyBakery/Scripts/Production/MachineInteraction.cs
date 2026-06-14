@@ -1,18 +1,15 @@
+using System;
 using MySunnyBakery.Characters;
 using MySunnyBakery.Interactions;
 using UnityEngine;
 using UnityEngine.Localization;
 
 namespace MySunnyBakery.Production {
-	[RequireComponent(typeof(IMachine))]
 	public class MachineInteraction : MonoBehaviour, IInteraction {
 		[SerializeField] private LocalizedString _hint;
-		
-		private IMachine _machine;
+		[SerializeField] private Machine _machine;
 
-		private void Awake() {
-			_machine = GetComponent<IMachine>();
-		}
+		public event Action<LocalizedString> HintChanged;
 
 		public void Interact(InteractionContext context) {
 			var hands = context.Invoker.GetComponent<Hands>();

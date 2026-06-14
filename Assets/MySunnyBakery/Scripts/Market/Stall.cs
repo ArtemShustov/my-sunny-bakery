@@ -20,6 +20,7 @@ namespace MySunnyBakery.Market {
 		public event Action Purchased;
 		public event ValueChanged<int> PriceChanged;
 		public event ValueChanged<int> CountChanged;
+		public event Action<LocalizedString> HintChanged;
 
 		public int Price {
 			get => _price;
@@ -51,7 +52,7 @@ namespace MySunnyBakery.Market {
 			if (context.Invoker.TryGetComponent(out Hands hands)) {
 				hands.Take(instance.GetComponent<Pickable>());
 			}
-			
+
 			Purchased?.Invoke();
 		}
 

@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: market.soldout
     m_Metadata:
       m_Items: []
+  - m_Id: 15260491998814208
+    m_Key: hint.acty.enter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15263761790132224
+    m_Key: debug
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,8 +1,10 @@
-using UnityEngine;
-using MySunnyBakery.Characters;
-using UnityEngine.InputSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using MySunnyBakery.Characters;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Localization;
 
 namespace MySunnyBakery.Interactions {
 	public class PlayerInteractor : MonoBehaviour {
@@ -10,8 +12,12 @@ namespace MySunnyBakery.Interactions {
 		[SerializeField] private float _interactionRadius = 3f;
 		[SerializeField] private LayerMask _interactionLayer = ~0;
 
+		public event Action<LocalizedString> HintChanged;
+		public event Action<LocalizedString> HoldHintChanged;
+
 		private IInteraction _selected;
 		private IHoldInteraction _selectedHold;
+
 		private readonly Collider[] _overlap = new Collider[16];
 		private readonly List<IHoldInteraction> _defaultHoldStack = new List<IHoldInteraction>();
 
@@ -25,12 +31,33 @@ namespace MySunnyBakery.Interactions {
 			UpdateSelection();
 		}
 
-		private void UpdateSelection() {
+		private void OnEnable() {
+			_character.Input.Use += OnUsePerformed;
+			_character.Input.UseAlt += OnUseAltPerformed;
+		}
+		private void OnDisable() {
+			_character.Input.Use -= OnUsePerformed;
+			_character.Input.UseAlt -= OnUseAltPerformed;
+
+			if (_selected != null) {
+				_selected.HintChanged -= OnSelectedHintChanged;
+			}
+			if (_selectedHold != null) {
+				_selectedHold.HoldHintChanged -= OnSelectedHoldHintChanged;
+			}
+
 			_selected = null;
 			_selectedHold = null;
+		}
 
+		#region Selection
+
+		private void UpdateSelection() {
 			var context = GetContext();
 			var position = transform.position;
+
+			IInteraction newSelected = null;
+			IHoldInteraction newSelectedHold = null;
 
 			var closestInteraction = float.MaxValue;
 			var closestHold = float.MaxValue;
@@ -48,28 +75,71 @@ namespace MySunnyBakery.Interactions {
 				if (collider.TryGetComponent<IInteraction>(out var interaction) && interaction.CanInteract(context)) {
 					var closestPoint = collider.ClosestPoint(position);
 					var sqrDistance = (closestPoint - position).sqrMagnitude;
-					
+
 					if (sqrDistance < closestInteraction) {
 						closestInteraction = sqrDistance;
-						_selected = interaction;
+						newSelected = interaction;
 					}
 				}
 
 				if (collider.TryGetComponent<IHoldInteraction>(out var holdInteraction) && holdInteraction.CanHoldInteract(context)) {
 					var closestPoint = collider.ClosestPoint(position);
 					var sqrDistance = (closestPoint - position).sqrMagnitude;
-					
+
 					if (sqrDistance < closestHold) {
 						closestHold = sqrDistance;
-						_selectedHold = holdInteraction;
+						newSelectedHold = holdInteraction;
 					}
 				}
 			}
+
+			if (newSelectedHold == null) {
+				newSelectedHold = _defaultHoldStack.LastOrDefault(x => x != null && x.CanHoldInteract(context));
+			}
+
+			ChangeSelectedInteraction(newSelected, newSelectedHold);
 		}
 
-		private InteractionContext GetContext() {
-			return new InteractionContext(_character.gameObject);
+		private void ChangeSelectedInteraction(IInteraction newSelected, IHoldInteraction newSelectedHold) {
+			if (_selected == newSelected && _selectedHold == newSelectedHold) {
+				return;
+			}
+
+			if (_selected != null) {
+				_selected.HintChanged -= OnSelectedHintChanged;
+			}
+			if (_selectedHold != null) {
+				_selectedHold.HoldHintChanged -= OnSelectedHoldHintChanged;
+			}
+
+			_selected = newSelected;
+			_selectedHold = newSelectedHold;
+
+			if (_selected != null) {
+				_selected.HintChanged += OnSelectedHintChanged;
+				HintChanged?.Invoke(_selected.GetHint(GetContext()));
+			} else {
+				HintChanged?.Invoke(new LocalizedString());
+			}
+
+			if (_selectedHold != null) {
+				_selectedHold.HoldHintChanged += OnSelectedHoldHintChanged;
+				HoldHintChanged?.Invoke(_selectedHold.GetHoldHint(GetContext()));
+			} else {
+				HoldHintChanged?.Invoke(new LocalizedString());
+			}
 		}
+
+		private void OnSelectedHintChanged(LocalizedString hint) {
+			HintChanged?.Invoke(hint);
+		}
+		private void OnSelectedHoldHintChanged(LocalizedString hint) {
+			HoldHintChanged?.Invoke(hint);
+		}
+
+		#endregion
+
+		#region Execution
 
 		private void ExecuteSelected() {
 			if (_selected == null) {
@@ -81,36 +151,32 @@ namespace MySunnyBakery.Interactions {
 				_selected.Interact(context);
 			}
 		}
+
 		private void ExecuteHoldSelected() {
-			_defaultHoldStack.RemoveAll(x => x == null);
-			
-			var context = GetContext();
-			var target = _selectedHold != null && _selectedHold.CanHoldInteract(context) 
-				? _selectedHold 
-				: _defaultHoldStack.LastOrDefault(x => x != null && x.CanHoldInteract(context));
-			
-			if (target != null) {
-				target.HoldInteract(context);
+			if (_selectedHold == null) {
+				return;
 			}
+
+			var context = GetContext();
+			_selectedHold.HoldInteract(context);
 		}
 
+		#endregion
+
+		#region Default Hold Stack
+
 		public void AddDefaultHoldInteraction(IHoldInteraction holdInteraction) {
-			if (holdInteraction != null && !_defaultHoldStack.Contains(holdInteraction)) {
-				_defaultHoldStack.Add(holdInteraction);
+			if (holdInteraction == null || _defaultHoldStack.Contains(holdInteraction)) {
+				return;
 			}
+
+			_defaultHoldStack.Add(holdInteraction);
 		}
 		public void RemoveDefaultHoldInteraction(IHoldInteraction holdInteraction) {
 			_defaultHoldStack.Remove(holdInteraction);
 		}
 
-		private void OnEnable() {
-			_character.Input.Use += OnUsePerformed;
-			_character.Input.UseAlt += OnUseAltPerformed;
-		}
-		private void OnDisable() {
-			_character.Input.Use -= OnUsePerformed;
-			_character.Input.UseAlt -= OnUseAltPerformed;
-		}
+		#endregion
 
 		private void OnUsePerformed(InputAction.CallbackContext context) {
 			if (context.performed) {
@@ -122,7 +188,11 @@ namespace MySunnyBakery.Interactions {
 				ExecuteHoldSelected();
 			}
 		}
-		
+
+		private InteractionContext GetContext() {
+			return new InteractionContext(_character.gameObject);
+		}
+
 		private void OnDrawGizmosSelected() {
 			Gizmos.color = Color.yellow;
 			Gizmos.DrawWireSphere(transform.position, _interactionRadius);

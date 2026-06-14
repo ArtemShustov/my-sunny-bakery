@@ -4,7 +4,7 @@ using MySunnyBakery.Interactions;
 using MySunnyBakery.Items;
 
 namespace MySunnyBakery.Production {
-	public class Former : MonoBehaviour, IMachine {
+	public class Former : Machine {
 		[Header("Settings")]
 		[SerializeField] private float _duration = 2f;
 		[Space]
@@ -33,7 +33,7 @@ namespace MySunnyBakery.Production {
 			}
 		}
 
-		public bool CanReceive(GameObject item) {
+		public override bool CanReceive(GameObject item) {
 			if (_isWorking || _outputSlot != null) {
 				return false;
 			}
@@ -55,7 +55,7 @@ namespace MySunnyBakery.Production {
 			return false;
 		}
 
-		public void Receive(GameObject item) {
+		public override void Receive(GameObject item) {
 			if (_isWorking) {
 				return;
 			}
@@ -122,11 +122,11 @@ namespace MySunnyBakery.Production {
 			}
 		}
 
-		public bool CanTake() {
+		public override bool CanTake() {
 			return _outputSlot != null && !_isWorking;
 		}
 
-		public GameObject Take() {
+		public override GameObject Take() {
 			if (_outputSlot == null) {
 				return null;
 			}

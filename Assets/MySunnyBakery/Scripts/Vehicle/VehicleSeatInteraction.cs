@@ -1,3 +1,4 @@
+using System;
 using MySunnyBakery.Core;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -10,6 +11,8 @@ namespace MySunnyBakery.Vehicles {
 		[SerializeField] private Transform _exitPoint;
 		
 		private (GameObject gameObject, IControllable controllable) _character;
+
+		public event Action<LocalizedString> HintChanged; 
 
 		public void Interact(InteractionContext context) {
 			if (!context.Invoker.TryGetComponent<IControllable>(out var character)) {

@@ -4,7 +4,7 @@ using MySunnyBakery.Interactions;
 using MySunnyBakery.Items;
 
 namespace MySunnyBakery.Production {
-	public class Mill: MonoBehaviour, IMachine {
+	public class Mill : Machine {
 		[Header("Visual")]
 		[SerializeField] private Transform _inputSlotRoot;
 		[SerializeField] private Transform _outputSlotRoot;
@@ -38,14 +38,14 @@ namespace MySunnyBakery.Production {
 			}
 		}
 
-		public bool CanReceive(GameObject item) {
+		public override bool CanReceive(GameObject item) {
 			if (_inputSlot != null || _outputSlot != null) {
 				return false;
 			}
 			return item.TryGetComponent<Item>(out var candidate) && candidate.Definition == _inputDefinition;
 		}
 
-		public void Receive(GameObject item) {
+		public override void Receive(GameObject item) {
 			if (_inputSlot != null || !item.TryGetComponent<Item>(out var inputItem) || inputItem.Definition != _inputDefinition) {
 				return;
 			}
@@ -68,6 +68,8 @@ namespace MySunnyBakery.Production {
 				Debug.LogWarning("Spawned item is null!");
 				return;
 			}
+			spawned.transform.localPosition = Vector3.zero;
+			spawned.transform.localRotation = Quaternion.identity;
 			
 			_outputSlot = spawned;
 			if (spawned.TryGetComponent<Pickable>(out var pickable)) {
@@ -75,11 +77,11 @@ namespace MySunnyBakery.Production {
 			}
 		}
 
-		public bool CanTake() {
+		public override bool CanTake() {
 			return _outputSlot != null;
 		}
 
-		public GameObject Take() {
+		public override GameObject Take() {
 			if (_outputSlot == null) {
 				return null;
 			}

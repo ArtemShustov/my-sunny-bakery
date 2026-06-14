@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4757784239373206434}
   - component: {fileID: 3714578592772042826}
-  - component: {fileID: 2585581617212343026}
   - component: {fileID: 1079713313739312308}
   - component: {fileID: 4045978094432515152}
   m_Layer: 0
@@ -33,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2482258305273643942}
   - {fileID: 5502887562036648501}
   - {fileID: 799160485935274916}
   - {fileID: 4282896743673121761}
@@ -56,30 +56,6 @@ MonoBehaviour:
   _grindDuration: 10
   _inputDefinition: {fileID: 11400000, guid: e1f8da78bec9086428459a59bcc53e0a, type: 2}
   _outputDefinition: {fileID: 11400000, guid: c8ac65f416379b04fa4dda82851195e2, type: 2}
---- !u!114 &2585581617212343026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3727669698253250799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec45d443626c9c348a4032eb9e4448d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.MachineInteraction
-  _hint:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &1079713313739312308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +124,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4757784239373206434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5029629245432587430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2482258305273643942}
+  - component: {fileID: 5575419739783350895}
+  - component: {fileID: 1386082526134320900}
+  m_Layer: 9
+  m_Name: Interaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2482258305273643942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029629245432587430}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4757784239373206434}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5575419739783350895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029629245432587430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec45d443626c9c348a4032eb9e4448d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Production.MachineInteraction
+  _hint:
+    m_TableReference:
+      m_TableCollectionName: GUID:e7051fd5c6f26a941ac9ec9d630504a1
+    m_TableEntryReference:
+      m_KeyId: 15263761790132224
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _machine: {fileID: 3714578592772042826}
+  references:
+    version: 2
+    RefIds: []
+--- !u!135 &1386082526134320900
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029629245432587430}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5959677022880897763
 GameObject:
   m_ObjectHideFlags: 0
