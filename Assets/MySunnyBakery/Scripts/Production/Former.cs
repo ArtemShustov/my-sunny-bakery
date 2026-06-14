@@ -34,7 +34,7 @@ namespace MySunnyBakery.Production {
 		}
 
 		public bool CanReceive(GameObject item) {
-			if (_isWorking) {
+			if (_isWorking || _outputSlot != null) {
 				return false;
 			}
 

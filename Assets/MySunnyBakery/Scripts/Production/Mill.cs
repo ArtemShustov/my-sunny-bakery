@@ -39,7 +39,7 @@ namespace MySunnyBakery.Production {
 		}
 
 		public bool CanReceive(GameObject item) {
-			if (_inputSlot != null) {
+			if (_inputSlot != null || _outputSlot != null) {
 				return false;
 			}
 			return item.TryGetComponent<Item>(out var candidate) && candidate.Definition == _inputDefinition;
