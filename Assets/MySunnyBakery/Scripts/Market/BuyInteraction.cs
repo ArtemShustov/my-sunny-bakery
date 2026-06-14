@@ -9,7 +9,7 @@ using UnityEngine.Localization;
 using VContainer;
 
 namespace MySunnyBakery.Market {
-	public class Stall : MonoBehaviour, IInteraction {
+	public class BuyInteraction : MonoBehaviour, IInteraction {
 		[SerializeField] private ItemDefinition _item;
 		[SerializeField, Min(0)] private int _price;
 		[SerializeField, Min(0)] private int _count;

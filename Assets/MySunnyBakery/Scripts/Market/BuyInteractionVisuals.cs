@@ -4,8 +4,8 @@ using UnityEngine.Localization.Components;
 using MySunnyBakery.Utils;
 
 namespace MySunnyBakery.Market {
-	public class StallVisuals : MonoBehaviour {
-		[SerializeField] private Stall _stall;
+	public class BuyInteractionVisuals : MonoBehaviour {
+		[SerializeField] private BuyInteraction _buyInteraction;
 		[Space]
 		[SerializeField] private LocalizeStringEvent _label;
 		[SerializeField] private LocalizedString _priceText;
@@ -14,11 +14,11 @@ namespace MySunnyBakery.Market {
 		private const string PriceKey = "value";
 
 		private void UpdatePrice() {
-			_label.StringReference.Set(PriceKey, _stall.Price);
+			_label.StringReference.Set(PriceKey, _buyInteraction.Price);
 			_label.RefreshString();
 		}
 		private void UpdateCount() {
-			if (_stall.Count > 0) {
+			if (_buyInteraction.Count > 0) {
 				_label.StringReference = _priceText;
 				UpdatePrice();
 			} else {
@@ -26,7 +26,7 @@ namespace MySunnyBakery.Market {
 			}
 			_label.RefreshString();
 		}
-		
+
 		private void OnPriceChanged(int oldPrice, int newPrice) {
 			UpdatePrice();
 		}
@@ -38,18 +38,18 @@ namespace MySunnyBakery.Market {
 		}
 
 		private void OnEnable() {
-			if (_stall != null) {
-				_stall.PriceChanged += OnPriceChanged;
-				_stall.CountChanged += OnCountChanged;
+			if (_buyInteraction != null) {
+				_buyInteraction.PriceChanged += OnPriceChanged;
+				_buyInteraction.CountChanged += OnCountChanged;
 			}
 
 			UpdatePrice();
 			UpdateCount();
 		}
 		private void OnDisable() {
-			if (_stall != null) {
-				_stall.PriceChanged -= OnPriceChanged;
-				_stall.CountChanged -= OnCountChanged;
+			if (_buyInteraction != null) {
+				_buyInteraction.PriceChanged -= OnPriceChanged;
+				_buyInteraction.CountChanged -= OnCountChanged;
 			}
 		}
 	}
