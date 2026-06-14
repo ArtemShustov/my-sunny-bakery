@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Main
   m_TableCollectionNameGuidString: e7051fd5c6f26a941ac9ec9d630504a1
-  m_Entries: []
+  m_Entries:
+  - m_Id: 15217823063203840
+    m_Key: market.price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15217983344336896
+    m_Key: market.soldout
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

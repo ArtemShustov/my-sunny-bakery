@@ -1,6 +1,10 @@
 using VContainer;
 using VContainer.Unity;
 
-public class RootLifetimeScope: LifetimeScope {
-	protected override void Configure(IContainerBuilder builder) { }
+namespace MySunnyBakery.Core {
+	public class RootLifetimeScope : LifetimeScope {
+		protected override void Configure(IContainerBuilder builder) {
+			builder.Register<PlayerData>(Lifetime.Singleton);
+		}
+	}
 }
