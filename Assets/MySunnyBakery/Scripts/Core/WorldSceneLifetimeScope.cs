@@ -1,6 +1,11 @@
+using MySunnyBakery.Delivery;
 using VContainer;
 using VContainer.Unity;
 
-public class WorldSceneLifetimeScope: LifetimeScope {
-	protected override void Configure(IContainerBuilder builder) { }
+namespace MySunnyBakery.Core {
+	public class WorldSceneLifetimeScope : LifetimeScope {
+		protected override void Configure(IContainerBuilder builder) {
+			builder.RegisterComponentInHierarchy<DeliveryService>();
+		}
+	}
 }
