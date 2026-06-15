@@ -1,38 +1,42 @@
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Serialization;
 
 namespace MySunnyBakery.Items {
 	[CreateAssetMenu(menuName = "My Sunny Bakery/Item Definition", fileName = "New Item Definition")]
 	public class ItemDefinition : ScriptableObject {
-		[SerializeField] private string _id;
-		[SerializeField] private LocalizedString _name;
-		[SerializeField] private int _maxStack = 1;
-		[SerializeField] private Vector2Int _size = Vector2Int.one;
-		[SerializeField] private Item _prefab;
+		[field: FormerlySerializedAs("_id")] 
+		[field: SerializeField] public string Id { get; private set; }
+		[field: FormerlySerializedAs("_name")] 
+		[field: SerializeField] public LocalizedString Name { get; private set; }
 
-		public string Id => _id;
-		public LocalizedString Name => _name;
-		public int MaxStack => _maxStack;
-		public Vector2Int Size => _size;
-		public Item Prefab => _prefab;
+		[field: Header("Visual")]
+		[field: FormerlySerializedAs("_prefab")]
+		[field: SerializeField] public Item Prefab { get; private set; }
+
+		[field: Header("Storage")] 
+		[field: FormerlySerializedAs("_maxStack")] 
+		[field: SerializeField] public int MaxStack { get; private set; } = 1;
+		[field: FormerlySerializedAs("_size")]
+		[field: SerializeField] public Vector2Int Size { get; private set; } = Vector2Int.one;
 
 		public Item Instantiate(Transform parent) {
-			if (_prefab == null) {
+			if (Prefab == null) {
 				return null;
 			}
 
-			var instance = Object.Instantiate(_prefab, parent);
+			var instance = Object.Instantiate(Prefab, parent);
 			instance.Init(this);
 			return instance;
 		}
 
 		#if UNITY_EDITOR
 		private void OnValidate() {
-			if (Application.isPlaying || _prefab == null) {
+			if (Application.isPlaying || Prefab == null) {
 				return;
 			}
 
-			var so = new UnityEditor.SerializedObject(_prefab);
+			var so = new UnityEditor.SerializedObject(Prefab);
 			so.FindProperty("_definition").objectReferenceValue = this;
 			so.ApplyModifiedPropertiesWithoutUndo();
 		}
