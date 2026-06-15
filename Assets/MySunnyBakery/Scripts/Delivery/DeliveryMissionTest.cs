@@ -9,7 +9,8 @@ namespace MySunnyBakery.Delivery {
 		[SerializeField] private int _pointCount = 3;
 
 		private void Start() {
-			_deliveryService.StartMission(_pointCount, _availableItem);
+			var mission = new DeliveryMission(_pointCount, _availableItem);
+			_deliveryService.StartMission(mission);
 		}
 
 		private void OnMissionStarted(IReadOnlyList<DeliveryTask> tasks) {
@@ -23,7 +24,7 @@ namespace MySunnyBakery.Delivery {
 		private void OnMissionCompleted() {
 			Debug.Log($"[{nameof(DeliveryMissionTest)}] All deliveries completed! Mission finished.");
 		}
-		
+
 		private void OnDeliverCompleted(DeliveryTask delivery) {
 			Debug.Log($"[{nameof(DeliveryMissionTest)}] Delivery to {delivery.Point.name} completed.");
 		}
@@ -33,6 +34,7 @@ namespace MySunnyBakery.Delivery {
 			_deliveryService.MissionCompleted += OnMissionCompleted;
 			_deliveryService.DeliveryCompleted += OnDeliverCompleted;
 		}
+
 		private void OnDisable() {
 			_deliveryService.MissionStarted -= OnMissionStarted;
 			_deliveryService.MissionCompleted -= OnMissionCompleted;
