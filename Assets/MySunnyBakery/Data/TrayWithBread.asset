@@ -13,4 +13,18 @@ MonoBehaviour:
   m_Name: TrayWithBread
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Items.ItemDefinition
   _id: tray_with_bread
+  _name:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _maxStack: 3
+  _size: {x: 3, y: 2}
   _prefab: {fileID: 2379265047095288602, guid: 37efd10966741e24ebd411a367f4b0c1, type: 3}
+  references:
+    version: 2
+    RefIds: []

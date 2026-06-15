@@ -13,4 +13,17 @@ MonoBehaviour:
   m_Name: Sacks
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Items.ItemDefinition
   _id: sacks
+  _name:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _maxStack: 1
   _prefab: {fileID: -7152309423203656919, guid: dd4c4ffd11e3b284d9110811aa28359b, type: 3}
+  references:
+    version: 2
+    RefIds: []
