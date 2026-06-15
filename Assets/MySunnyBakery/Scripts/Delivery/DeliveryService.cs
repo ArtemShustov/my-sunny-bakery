@@ -12,6 +12,7 @@ namespace MySunnyBakery.Delivery {
 
 		public IReadOnlyList<DeliveryTask> ActiveTasks => _activeTasks;
 		public bool IsMissionActive => _currentMission != null;
+		public int PointsCount => _registeredPoints.Count;
 
 		public event Action<DeliveryTask> DeliveryCompleted;
 		public event Action<IReadOnlyList<DeliveryTask>> MissionStarted;

@@ -5,6 +5,7 @@ namespace MySunnyBakery.Core {
 	public class RootLifetimeScope : LifetimeScope {
 		protected override void Configure(IContainerBuilder builder) {
 			builder.Register<PlayerData>(Lifetime.Singleton);
+			builder.RegisterComponentInHierarchy<FadeScreen>();
 		}
 	}
 }
