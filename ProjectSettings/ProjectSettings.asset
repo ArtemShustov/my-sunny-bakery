@@ -147,6 +147,8 @@ PlayerSettings:
   bundleVersion: jam1.0-dev
   preloadedAssets:
   - {fileID: 11400000, guid: b331c9e223971fb4fa63a298d82c2fcd, type: 2}
+  - {fileID: 11400000, guid: 8aed65a62dec0f74bace570a4aefd0ad, type: 2}
+  - {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

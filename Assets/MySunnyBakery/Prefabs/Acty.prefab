@@ -451,7 +451,7 @@ MonoBehaviour:
     m_Bits: 55
   maxSpeed: 20
   acceleration: 6
-  turn: 3
+  turn: 4
   gravity: 7
   downforce: 5
   airControl: 0
