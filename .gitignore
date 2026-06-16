@@ -6,6 +6,8 @@
 /[Aa]ssets/[Tt]hird[Pp]arty/*
 /[Aa]ssets/[Tt]hird [Pp]arty/*
 /[Aa]ssets/[Pp]lugins/*
+*.blend1
+*.blend1.meta
 
 # but not this
 !README.md
