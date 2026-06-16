@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Girl1
+  m_Name: Girl1_Face
   m_Shader: {fileID: 4800000, guid: b71223922013cb64aaabd028c44e83b9, type: 3}
   m_Parent: {fileID: 2100000, guid: e63eac31769a17644957ef7b56edf200, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6f14eff0dc577e54ba7f059918ddd87c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 89c7cbcb4b9342145bad0dd1a879cf82, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []

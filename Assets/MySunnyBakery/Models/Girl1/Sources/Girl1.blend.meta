@@ -11,6 +11,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Girl1
     second: {fileID: 2100000, guid: e6253ca1dd8b7894988f96ba8916aea3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Girl_Face
+    second: {fileID: 2100000, guid: 419700580fad0f545bed40e6f658b677, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
