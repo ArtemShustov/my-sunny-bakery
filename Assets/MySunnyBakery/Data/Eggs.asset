@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e968ab638d0436847a3333c4687ad446, type: 3}
   m_Name: Eggs
   m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Items.ItemDefinition
-  _id: eggs
-  _name:
+  <Id>k__BackingField: eggs
+  <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: 
     m_TableEntryReference:
@@ -22,8 +22,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  _maxStack: 1
-  _prefab: {fileID: 1307267625159292708, guid: 660cc1097e1c11f4b92b2e8b4e0c66b7, type: 3}
+  <Prefab>k__BackingField: {fileID: 1307267625159292708, guid: 660cc1097e1c11f4b92b2e8b4e0c66b7, type: 3}
+  <MaxStack>k__BackingField: 1
+  <Size>k__BackingField: {x: 1, y: 2}
   references:
     version: 2
     RefIds: []
