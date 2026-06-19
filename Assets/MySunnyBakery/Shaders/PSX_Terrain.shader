@@ -110,7 +110,23 @@ Shader "Custom/PSX_Terrain"
                 half4 c2 = SAMPLE_TEXTURE2D(_Splat2, sampler_Splat2, IN.uv_splat_23.xy * invW);
                 half4 c3 = SAMPLE_TEXTURE2D(_Splat3, sampler_Splat3, IN.uv_splat_23.zw * invW);
 
-                half4 col = c0 * blend.r + c1 * blend.g + c2 * blend.b + c3 * blend.a;
+                half4 col;
+                if (blend.r > blend.g && blend.r > blend.b && blend.r > blend.a)
+                {
+                    col = c0;
+                }
+                else if (blend.g > blend.b && blend.g > blend.a)
+                {
+                    col = c1;
+                }
+                else if (blend.b > blend.a)
+                {
+                    col = c2;
+                }
+                else
+                {
+                    col = c3;
+                }
                 
                 col.rgb *= IN.lighting;
                 col.rgb = floor(col.rgb * _ColorDepth) / _ColorDepth;

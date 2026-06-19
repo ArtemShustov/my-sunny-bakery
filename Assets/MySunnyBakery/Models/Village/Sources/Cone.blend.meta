@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dec14366774135141abe5caee579ec6b
+guid: 882929489520d634ca2be4521e5063dc
 labels:
 - AutoBlend2Fbx
 ModelImporter:
@@ -9,8 +9,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: House
-    second: {fileID: 2100000, guid: f7c78a8d11f11b0498464bc078af944e, type: 2}
+      name: Cone
+    second: {fileID: 2100000, guid: 533c3db0f26bef54da6b12bd936cf634, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

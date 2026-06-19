@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: dec14366774135141abe5caee579ec6b
-labels:
-- AutoBlend2Fbx
+guid: 940ffdd3feb1a8b4b97567fcf228385f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -9,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: House
-    second: {fileID: 2100000, guid: f7c78a8d11f11b0498464bc078af944e, type: 2}
+      name: Fence
+    second: {fileID: 2100000, guid: 57d18385d59db7044a7ade1f17c1092f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
