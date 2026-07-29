@@ -1,0 +1,3 @@
+[submodule "Assets/ThirdParty-Sync"]
+	path = Assets/ThirdParty-Sync
+	url = git@github.com:ArtemShustov/my-sunny-bakery-ThirdParty.git
