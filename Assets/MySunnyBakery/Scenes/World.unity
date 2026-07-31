@@ -2790,6 +2790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1256769176}
   - component: {fileID: 1256769175}
+  - component: {fileID: 1256769177}
   m_Layer: 0
   m_Name: LocalPlayer#0
   m_TagString: Untagged
@@ -2826,6 +2827,18 @@ Transform:
   - {fileID: 58513705}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256769177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256769174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2559be3e8364f30bccc6b0cda6c4a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MySunnyBakery.Core.DevicePairing
 --- !u!4 &1301907139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5126350441736697961, guid: 37d9a3044a05f88488e6490b3cdf0b40, type: 3}
