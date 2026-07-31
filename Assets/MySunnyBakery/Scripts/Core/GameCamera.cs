@@ -13,6 +13,7 @@ namespace MySunnyBakery.Core {
 		[SerializeField] private CameraInput _vehicleCameraInput;
 
 		private LocalPlayer _player;
+		private Transform _target;
 		private CinemachineCamera _activeCamera;
 
 		private void Awake() {
@@ -27,23 +28,37 @@ namespace MySunnyBakery.Core {
 			_vehicleCameraInput.Input = _player.Actions;
 		}
 
+		public void SwitchCamera(CinemachineCamera cam) {
+			if (_activeCamera != null) {
+				_activeCamera.Priority = 0;
+			}
+			_activeCamera = cam;
+			if (_activeCamera != null) {
+				_activeCamera.Priority = 10;
+			}
+
+			SetTarget(_target);
+		}
+		
 		public void SelectCharacterCamera() {
-			_characterCamera.Priority = 10;
-			_vehicleCamera.Priority = 0;
-			_activeCamera = _characterCamera;
+			SwitchCamera(_characterCamera);
 		}
 
 		public void SelectVehicleCamera() {
-			_vehicleCamera.Priority = 10;
-			_characterCamera.Priority = 0;
-			_activeCamera = _vehicleCamera;
+			SwitchCamera(_vehicleCamera);
 		}
 
 		public void SetTarget(Transform target) {
-			_characterCamera.Follow = target;
-			_characterCamera.LookAt = target;
-			_vehicleCamera.Follow = target;
-			_vehicleCamera.LookAt = target;
+			_target = target;
+
+			if (_activeCamera == null) {
+				return;
+			}
+			_activeCamera.Target = new CameraTarget() {
+				TrackingTarget = target,
+				LookAtTarget = target,
+				CustomLookAtTarget = true,
+			};
 		}
 	}
 }
