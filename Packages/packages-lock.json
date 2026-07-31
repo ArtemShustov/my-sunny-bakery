@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.artemshustov.blend2fbx": {
+      "version": "https://github.com/ArtemShustov/blend2fbx.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a4d4680cdafd64f3fa664f9c0abbca0e458463e1"
+    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,

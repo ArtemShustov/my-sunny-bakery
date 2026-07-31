@@ -167,7 +167,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087936549658321974}
-  m_Material: {fileID: 13400000, guid: ce8f2e0169709cc4da4d8131aec6cef1, type: 2}
+  m_Material: {fileID: 13400000, guid: 0b957cd56b693094295476f2e5963313, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  frictionMaterial: {fileID: 13400000, guid: ce8f2e0169709cc4da4d8131aec6cef1, type: 2}
+  frictionMaterial: {fileID: 13400000, guid: 0b957cd56b693094295476f2e5963313, type: 2}
   bodyMesh: {fileID: 7243713816745887256}
   frontWheels:
   - {fileID: 7395444260918930780}

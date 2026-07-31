@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 0b1d854b4e9f94b4f85314df53f32acd
 labels:
-- AutoBlend2Fbx
+- Blend2Fbx
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
