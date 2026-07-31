@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using VContainer;
 
-namespace MySunnyBakery.Core {
+namespace MySunnyBakery.World {
 	public class BedInteraction: MonoBehaviour, IInteraction {
 		[SerializeField] private LocalizedString _hint;
 

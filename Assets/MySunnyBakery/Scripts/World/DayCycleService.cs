@@ -1,10 +1,11 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using MySunnyBakery.Core;
 using UnityEngine;
 using VContainer;
 
-namespace MySunnyBakery.Core {
+namespace MySunnyBakery.World {
 	public class DayCycleService : MonoBehaviour {
 		private FadeScreen _fadeScreen;
 
